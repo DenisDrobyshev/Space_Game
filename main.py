@@ -6,9 +6,15 @@ from pygame.sprite import Group
 from stats import Stats
 from scores import Scores
 
-def run():
+WIDTH = 700
+HEIGHT = 650
+
+current_scene = None
+
+
+def main():
     pygame.init()
-    screen = pygame.display.set_mode((700, 650))
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Космические защитники")
     bg_color = (0, 0, 0)
     gun = Gun(screen)
@@ -26,4 +32,6 @@ def run():
             controls.update_bullets(screen, stats, sc, inos, bullets)
             controls.update_inos(stats, screen, sc, gun, inos, bullets)
 
-run()
+
+if __name__ == "__main__":
+    main()

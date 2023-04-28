@@ -18,7 +18,6 @@ class Gun(Sprite):
 
     def output(self):
         """рисование пушки"""
-
         self.screen.blit(self.image, self.rect)
 
     def update_gun(self):

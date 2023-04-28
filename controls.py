@@ -45,10 +45,11 @@ def update_bullets(screen, stats, sc, inos, bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
     # словарь с парами ключ значение
-    collisions = pygame.sprite.groupcollide(bullets, inos, True, True)  # True x2 для удаления пули и пришельца одновременно
+    collisions = pygame.sprite.groupcollide(bullets, inos, True, True)
+    # True x2 для удаления пули и пришельца одновременно
     if collisions:
         for inos in collisions.values():
-            stats.score += 10 * len(inos)
+            stats.score += 10 * len(inos)  # увеличиваем счёт на 10
         sc.image_score()
         check_high_score(stats, sc)
         sc.image_guns()
@@ -60,7 +61,7 @@ def update_bullets(screen, stats, sc, inos, bullets):
 
 def gun_kill(stats, screen, sc, gun, inos, bullets):
     """столкновение пушки и армии"""
-    if stats.guns_left > 0:
+    if stats.guns_left > 1:
         stats.guns_left -= 1
         sc.image_guns()
         inos.empty()
@@ -98,7 +99,7 @@ def create_army(screen, inos):
     ino_height = ino.rect.height
     number_ino_y = int((650 - 100 - 2 * ino_height) / ino_height)
 
-    for row_number in range(number_ino_y - 1):  # сколько рядов
+    for row_number in range(number_ino_y - 3):  # сколько рядов
         for ino_number in range(number_ino_x):  # сколько пришельцев в ряду
             ino = Ino(screen)
             ino.x = ino_width + ino_width * ino_number

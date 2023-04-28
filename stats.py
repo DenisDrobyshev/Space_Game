@@ -9,6 +9,6 @@ class Stats():
             self.high_score = int(f.readline())
 
     def reset_stats(self):
-        """ститистика изменяющаяся во время игры"""
+        """ститистика изменяющаяся во время игры или количество пушек (жизней) на экране"""
         self.guns_left = 3
         self.score = 0

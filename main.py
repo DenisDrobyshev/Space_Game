@@ -9,8 +9,6 @@ from scores import Scores
 WIDTH = 700
 HEIGHT = 650
 
-current_scene = None
-
 
 def main():
     pygame.init()

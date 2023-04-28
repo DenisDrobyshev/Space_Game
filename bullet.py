@@ -1,4 +1,5 @@
 import pygame
+import random
 
 
 class Bullet(pygame.sprite.Sprite):
@@ -9,7 +10,8 @@ class Bullet(pygame.sprite.Sprite):
         super(Bullet, self).__init__()
         self.screen = screen
         self.rect = pygame.Rect(0, 0, 10, 12)
-        self.color = 139, 195, 74
+        self.colors = [(255, 0, 0), (0, 255, 0), (0, 255, 255), (255, 255, 0), (255, 0, 255)]
+        self.color = random.choice(self.colors)
         self.speed = 4.5
         self.rect.centerx = gun.rect.centerx
         self.rect.top = gun.rect.top
